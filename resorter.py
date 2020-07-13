@@ -36,7 +36,6 @@ async def check(ctx):
     value = random.randint(0, 0xffffff)
     embed = discord.Embed(
         colour=value,
-        title="Command non-existent or broken."
     )
     embed.add_field(name="'Bot online 🟩", value="\u200b")
     await ctx.send(embed=embed)
