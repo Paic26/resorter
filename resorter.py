@@ -29,5 +29,16 @@ for filename in os.listdir('./cogs/'):
 @bot.command()
 async def hey(ctx):
     await ctx.send('Welcome to the server!!')
+    
+@bot.command()
+async def check(ctx):
+    value = random.randint(0, 0xffffff)
+    embed = discord.Embed(
+        colour=value,
+        title="Command non-existent or broken."
+    )
+    embed.add_field(name="'Bot online 🟩", value="\u200b")
+    await ctx.send(embed=embed)
+
 
 bot.run(os.environ['TOKEN'])
