@@ -30,5 +30,4 @@ for filename in os.listdir('./cogs/'):
 async def hey(ctx):
     await ctx.send('Welcome to the server!!')
 
-#bot.run(os.environ['TOKEN'])
-bot.run('NzMyMDUzNzkwNDc1NDE5Nzc4.XwvAXQ.Xl_jebTkXj-KFAIOM3fO1jRZMfY')
+bot.run(os.environ['TOKEN'])
