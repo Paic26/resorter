@@ -4,7 +4,7 @@ import  os
 import random
 from discord.utils import get
 
-bot = commands.Bot(command_prefix = ".",  case_insensitive=True, owner_id=382947478422421516)
+bot = commands.Bot(command_prefix = ">",  case_insensitive=True, owner_id=382947478422421516)
 Bot = discord.client
 client = bot
 
@@ -30,7 +30,21 @@ for filename in os.listdir('./cogs/'):
 @bot.command()
 async def welcome(ctx):
     await ctx.message.delete()
-    await ctx.send('Welcome to the server!!')
+    author = ctx.message.author
+    responses = [
+        f'You have just been welcomed by {ctx.author} :heart::heart:',
+        f'Well hello there buddy, {ctx.author} just welcomed you to Chill Resort!!']
+
+
+        value = random.randint(0, 0xffffff)
+        embed = discord.Embed(
+
+            colour=value,
+
+        )
+        embed.add_field(name=f'{random.choice(responses)}', value="\u200b", inline=False)
+
+        await ctx.send(embed=embed)
     
 @bot.command()
 async def check(ctx):
