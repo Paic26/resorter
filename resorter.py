@@ -34,8 +34,8 @@ async def welcome(ctx):
     await ctx.message.delete()
     author = ctx.message.author
     responses = [
-        f'You have just been welcomed by {ctx.author.mention} :heart::heart:',
-        f'Well hello there buddy, {ctx.author.mention} just welcomed you to Chill Resort!!']
+        f'You have just been welcomed by {ctx.author} :heart::heart:',
+        f'Well hello there buddy, {ctx.author} just welcomed you to Chill Resort!!']
 
 
     value = random.randint(0, 0xffffff)
