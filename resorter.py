@@ -39,7 +39,7 @@ async def welcome(ctx):
         value = random.randint(0, 0xffffff)
         embed = discord.Embed(
 
-            colour=value,
+            colour= value,
 
         )
         embed.add_field(name=f'{random.choice(responses)}', value="\u200b", inline=False)
