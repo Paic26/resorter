@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import  os
 import random
-
+from discord.utils import get
 
 bot = commands.Bot(command_prefix = ".",  case_insensitive=True, owner_id=382947478422421516)
 Bot = discord.client
@@ -41,5 +41,12 @@ async def check(ctx):
     embed.add_field(name="'Bot online 🟩", value="\u200b")
     await ctx.send(embed=embed)
 
-
+@bot.command(pass_context=True)
+@commands.has_role('staff')
+async def mute(ctx, user: discord.Member):
+    role = get(ctx.message.server.roles, name='member')
+    await bot.remove_roles(user, role)
+    await bot.say("{} has been muted from chat".format(user.name))
+    
+    
 bot.run(os.environ['TOKEN'])
