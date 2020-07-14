@@ -38,15 +38,15 @@ async def welcome(ctx):
         f'Well hello there buddy, {ctx.author} just welcomed you to Chill Resort!!']
 
 
-        value = random.randint(0, 0xffffff)
-        embed = discord.Embed(
+     value = random.randint(0, 0xffffff)
+     embed = discord.Embed(
 
-            colour=value,
+           colour=value,
 
-        )
-        embed.add_field(name=f'{random.choice(responses)}', value="\u200b", inline=False)
+      )
+      embed.add_field(name=f'{random.choice(responses)}', value="\u200b", inline=False)
 
-        await ctx.send(embed=embed)
+      await ctx.send(embed=embed)
     
 @bot.command()
 async def check(ctx):
