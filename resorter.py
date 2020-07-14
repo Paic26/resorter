@@ -43,7 +43,7 @@ async def check(ctx):
 
 @bot.command(pass_context=True)
 @commands.has_role('staff')
-async def mute(ctx, user: discord.Member):
+async def testmute(ctx, user: discord.Member):
     role = get(ctx.message.server.roles, name='member')
     await bot.remove_roles(user, role)
     await bot.say("{} has been muted from chat".format(user.name))
