@@ -3,6 +3,8 @@ from discord.ext import commands
 import  os
 import random
 from discord.utils import get
+import random
+from random import choice
 
 bot = commands.Bot(command_prefix = ">",  case_insensitive=True, owner_id=382947478422421516)
 Bot = discord.client
