@@ -40,13 +40,5 @@ async def check(ctx):
     )
     embed.add_field(name="'Bot online 🟩", value="\u200b")
     await ctx.send(embed=embed)
-
-@bot.command(pass_context=True)
-@commands.has_role('Chat Mod 「💭」')
-async def testmute(ctx, user: discord.Member):
-    role = get(ctx.message.guild.roles, name='Member')
-    await bot.remove_roles(user, role)
-    await bot.say("{} has been muted from chat".format(user.name))
-    
     
 bot.run(os.environ['TOKEN'])
