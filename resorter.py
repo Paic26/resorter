@@ -44,9 +44,9 @@ async def welcome(ctx):
           colour=value,
 
      )
-     embed.add_field(name=f'{random.choice(responses)}', value="\u200b", inline=False)
+    embed.add_field(name=f'{random.choice(responses)}', value="\u200b", inline=False)
 
-     await ctx.send(embed=embed)
+    await ctx.send(embed=embed)
     
 @bot.command()
 async def check(ctx):
