@@ -28,7 +28,7 @@ for filename in os.listdir('./cogs/'):
 
 
 @bot.command()
-async def hey(ctx):
+async def welcome(ctx):
     await ctx.send('Welcome to the server!!')
     
 @bot.command()
