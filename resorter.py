@@ -42,7 +42,7 @@ async def check(ctx):
     await ctx.send(embed=embed)
 
 @bot.command(pass_context=True)
-@commands.has_role('Admin「🔨」', 'Sr. Mod「🔅」', 'Mod 「☕」', 'Chat Mod 「💭」')
+@commands.has_role('Chat Mod 「💭」')
 async def testmute(ctx, user: discord.Member):
     role = get(ctx.message.server.roles, name='member')
     await bot.remove_roles(user, role)
