@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 import json
 import random
+import datetime
+
 def get_prefix(client, message):
     with open('./json/prefixes.json', 'r') as f:
         prefixes = json.load(f)
