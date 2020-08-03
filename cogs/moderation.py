@@ -9,6 +9,8 @@ def get_prefix(client, message):
     return prefixes[str(message.guild.id)]
 
 bot = commands.Bot(command_prefix = get_prefix,  case_insensitive=True, owner_id=382947478422421516)
+client.remove_command('help')
+
 
 class Moderation(commands.Cog):
 
@@ -97,6 +99,26 @@ class Moderation(commands.Cog):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send('Please select a user to ban.')
 
+            
+            
+    @commands.command(aliases=['Help','','',''])
+    async def helpmoderation(self, ctx):
+        value2 = random.randint(0, 0xffffff)
+        embed2 = discord.Embed(
+            colour=value2,
+            timestamp=datetime.datetime.utcnow()
+        )
+
+        embed2.set_author(name="Moderation Commands")
+        embed2.add_field(name="Ban", value="Bans Users", inline=False)
+        embed2.add_field(name="Unban", value="Unbans Users", inline=False)
+        embed2.add_field(name="Kick", value="Kicks Users", inline=False)
+        embed2.add_field(name="Mute", value="Mutes Users", inline=False)
+        embed2.add_field(name="Unmute", value="Unmutes muted users", inline=False)
+        embed2.add_field(name="Clear", value="Clears messages (clearall deletes all the messages from the channel)", inline=False)
+        embed2.set_footer(text=f"Just helped{ctx.author}", icon_url=ctx.author.avatar_url)
+
+        await ctx.send(embed=embed2)
 
 def setup(bot):
     bot.add_cog(Moderation(bot))
