@@ -106,6 +106,14 @@ class Entertainment(commands.Cog):
         )
         embed.set_image(url=member.avatar_url)
         await ctx.send(embed=embed)
+        
+        
+    @commands.command(aliases=["pm"])
+    async def dm(self, ctx, member: discord.Member, *, text):
+        await ctx.message.delete()
+        await member.send(f"{ctx.author} sent this dm:\n\n {text}")
+        print(f"{ctx.author} DMed {member}: {text}")        
+
 
     #errors
 
