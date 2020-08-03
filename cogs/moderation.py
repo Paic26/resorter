@@ -92,12 +92,8 @@ class Moderation(commands.Cog):
     @commands.has_permissions(view_audit_log=True)
     async def warn(self, ctx, member: discord.Member, *, reason):
         value = random.randint(0, 0xffffff)
-        embed = discord.Embed(
-
-            colour=value,
-
-        )
-        embed.add_field(name=f'{member} was warned for: {reason}')', value="\u200b", inline=False)
+        embed = discord.Embed(colour=value)
+        embed.add_field(name=f'{member} was warned for: {reason}')', value="\u200b")
 
         await ctx.send(embed=embed)
 
