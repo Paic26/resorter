@@ -16,7 +16,7 @@ bot = commands.Bot(command_prefix = ">",  case_insensitive=True, owner_id=382947
 Bot = discord.client
 client = bot
 client.remove_command('help')
-
+bot.version='V1.5'
 @bot.event
 async def on_ready():
     print(f'{bot.user} has logged in.\n-----------------------------')
