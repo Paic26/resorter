@@ -85,7 +85,7 @@ async def stats(ctx):
     embed.add_field(name='Total Users:', value=f"{memberCount}", inline=False)
     embed.add_field(name='Bot Developers:', value="<@382947478422421516>")
 
-    embed.set_footer(text=f"Yours truly, | {bot.user.name}")
+    embed.set_footer(text=f"Yours truly, {bot.user.name}")
     embed.set_author(name=bot.user.name, icon_url=bot.user.avatar_url)
 
     await ctx.send(embed=embed)    
