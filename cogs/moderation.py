@@ -91,8 +91,8 @@ class Moderation(commands.Cog):
     @commands.command()
     @commands.has_permissions(view_audit_log=True)
     async def warn(self, ctx, member: discord.Member, *, reason=None):
-        await member.kick(reason=reason)
-        print(f'{ctx.author} warned {member} for: {reason}')
+        await member.warn(reason=reason)
+        ctx.send(f'{ctx.author} warned {member} for: {reason}')
 
         #errors
 
