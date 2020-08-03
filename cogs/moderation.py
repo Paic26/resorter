@@ -9,8 +9,9 @@ def get_prefix(client, message):
     return prefixes[str(message.guild.id)]
 
 bot = commands.Bot(command_prefix = get_prefix,  case_insensitive=True, owner_id=382947478422421516)
+Bot = discord.client
+client = bot
 client.remove_command('help')
-
 
 class Moderation(commands.Cog):
 
