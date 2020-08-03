@@ -13,7 +13,7 @@ import praw
 import platform
 
 bot = commands.Bot(command_prefix = ">",  case_insensitive=True, owner_id=382947478422421516)
-Bot = client
+Bot = discord.client
 client = bot
 client.remove_command('help')
 
