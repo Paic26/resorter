@@ -102,7 +102,7 @@ class Moderation(commands.Cog):
 
             
             
-    @commands.command(aliases=['Help','','',''])
+    @commands.command(aliases=['Help'])
     async def helpmoderation(self, ctx):
         value2 = random.randint(0, 0xffffff)
         embed2 = discord.Embed(
