@@ -5,29 +5,37 @@ import random
 from discord.utils import get
 import random
 from random import choice
+import json
+import asyncio
+import datetime
+from datetime import datetime
+import praw
+import platform
 
 bot = commands.Bot(command_prefix = ">",  case_insensitive=True, owner_id=382947478422421516)
-Bot = discord.client
+Bot = client
 client = bot
-
+client.remove_command('help')
 
 @bot.event
 async def on_ready():
     print(f'{bot.user} has logged in.\n-----------------------------')
 
 @bot.command()
+@commands.is_owner()
 async def load(ctx, extension):
     bot.load_extension(f'cogs.{extension}')
+    await ctx.send(f'{extension} loaded')
 
 @bot.command()
+@commands.is_owner()
 async def unload(ctx, extension):
     bot.unload_extension(f'cogs.{extension}')
-
+    await ctx.send(f'{extension} unloaded')
 
 for filename in os.listdir('./cogs/'):
     if filename.endswith('.py'):
-        bot.load_extension((f'cogs.{filename[:-3]}'))
-
+        client.load_extension((f'cogs.{filename[:-3]}'))
 
 @bot.command()
 async def welcome(ctx):
@@ -56,5 +64,32 @@ async def check(ctx):
     )
     embed.add_field(name="'Bot online 🟩", value="\u200b")
     await ctx.send(embed=embed)
+      
+@bot.command()
+async def stats(ctx):
+
+    pythonVersion = platform.python_version()
+    dpyVersion = discord.__version__
+    serverCount = len(bot.guilds)
+    memberCount = len(set(bot.get_all_members()))
+
+    embed = discord.Embed(title=f'{bot.user.name} Stats',
+                          description='\uFEFF',
+                          colour=ctx.author.colour,
+                          timestamp=ctx.message.created_at)
+
+    embed.add_field(name='Bot Version:', value=f"{bot.version}", inline=False)
+    embed.add_field(name='Python Version:', value=f"{pythonVersion}", inline=False)
+    embed.add_field(name='Discord.Py Version', value=f"{dpyVersion}", inline=False)
+    embed.add_field(name='Total Guilds:', value=f"{serverCount}", inline=False)
+    embed.add_field(name='Total Users:', value=f"{memberCount}", inline=False)
+    embed.add_field(name='Bot Developers:', value="<@382947478422421516>")
+
+    embed.set_footer(text=f"Yours truly, | {bot.user.name}")
+    embed.set_author(name=bot.user.name, icon_url=bot.user.avatar_url)
+
+    await ctx.send(embed=embed)    
     
+    
+ 
 bot.run(os.environ['TOKEN'])
