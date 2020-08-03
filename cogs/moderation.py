@@ -86,7 +86,11 @@ class Moderation(commands.Cog):
     async def clearall(self, ctx, amount=9999999999999):
         await ctx.channel.purge(limit=amount)
 
-
+    @commands.command()
+    @commands.has_permissions(view_audit_log=True)
+    async def warn(self, ctx, member: discord.Member, *, reason=None):
+        await member.kick(reason=reason)
+        print(f'{ctx.author} warned {member} for: {reason}')
 
         #errors
 
