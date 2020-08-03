@@ -1,1 +1,1 @@
-
+worker: python resorter.py
