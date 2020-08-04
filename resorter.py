@@ -102,7 +102,7 @@ async def stats(ctx):
 
     await ctx.send(embed=embed)    
 @bot.command()
-async def stats(ctx):    
+async def membercount(ctx):    
     memberCount = len(set(bot.get_all_members()))
     embed = discord.Embed(title='Member Count',
                           description='\uFEFF',
