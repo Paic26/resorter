@@ -19,7 +19,7 @@ client.remove_command('help')
 bot.version='V1.5'
 @bot.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.watching, activity=discord.Game('over Chill Resort'))
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="over Chill Resort"))
     print(f'{bot.user} has logged in.\n-----------------------------')
 
 @bot.command()
