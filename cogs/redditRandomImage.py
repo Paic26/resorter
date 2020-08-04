@@ -28,9 +28,9 @@ class RedditRandomImage(commands.Cog):
             await ctx.send("I could not find `{}`".format(subreddit_name))
 
     @commands.command()
-    async def e(self, ctx, message):
-        elephant_gif = self.reddit.subreddit("memes").random().url
-        await ctx.send(elephant_gif)
+    async def meme(self, ctx, message):
+        meme = self.reddit.subreddit("memes").random().url
+        await ctx.send(meme)
 
 
 def setup(bot):
