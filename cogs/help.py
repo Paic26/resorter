@@ -66,7 +66,7 @@ class Help(commands.Cog):
 
         await ctx.send(embed=embed1)
 
-    @commands.command(aliases=['helpmod','help2','helpstaff','help_staff'])
+    @commands.command(aliases=['helpmod','helpM','helpstaff','help_staff'])
     async def helpmoderation(self, ctx):
         value2 = random.randint(0, 0xffffff)
         embed2 = discord.Embed(
