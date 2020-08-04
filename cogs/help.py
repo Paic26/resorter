@@ -41,7 +41,7 @@ class Help(commands.Cog):
             timestamp=datetime.datetime.utcnow()
         )
 
-        embed.set_author(name="Commands", icon_url="https://www.canteach.ca/minecraft-pe/images/wheat.gif")
+        embed.set_author(name="Commands")
         embed.add_field(name="Help_fun", value="Gives all the entertainment commands.", inline=False)
         embed.add_field(name="Help_moderation", value="Gives all the moderation commands.", inline=False)
         embed.set_footer(text=f"Just helped{ctx.author}", icon_url=ctx.author.avatar_url)
@@ -56,7 +56,7 @@ class Help(commands.Cog):
             timestamp=datetime.datetime.utcnow()
         )
 
-        embed1.set_author(name="Fun Commands", icon_url="https://www.canteach.ca/minecraft-pe/images/wheat.gif")
+        embed1.set_author(name="Fun Commands")
         embed1.add_field(name="Coinflip", value="Heads or Tails", inline=False)
         embed1.add_field(name="8ball", value="Ask a question and the bot will give an answer", inline=False)
         embed1.add_field(name="WhoIs", value="Will give a certain user's info.", inline=False)
@@ -74,7 +74,7 @@ class Help(commands.Cog):
             timestamp=datetime.datetime.utcnow()
         )
 
-        embed2.set_author(name="Moderation Commands",icon_url="https://www.canteach.ca/minecraft-pe/images/wheat.gif")
+        embed2.set_author(name="Moderation Commands")
         embed2.add_field(name="Ban", value="Bans Users", inline=False)
         embed2.add_field(name="Unban", value="Unbans Users", inline=False)
         embed2.add_field(name="Kick", value="Kicks Users", inline=False)
@@ -94,7 +94,7 @@ class Help(commands.Cog):
             timestamp=datetime.datetime.utcnow()
         )
 
-        crypto.set_author(name="Crypto Commands", icon_url="https://www.canteach.ca/minecraft-pe/images/wheat.gif")
+        crypto.set_author(name="Crypto Commands")
         crypto.add_field(name="BTC", value="Bitcoin", inline=False)
         crypto.add_field(name="ETH", value="Ethereum", inline=False)
         crypto.add_field(name="BCH", value="Bitcoin Cash", inline=False)
