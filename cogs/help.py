@@ -42,8 +42,8 @@ class Help(commands.Cog):
         )
 
         embed.set_author(name="Commands")
-        embed.add_field(name="Help_fun", value="Gives all the entertainment commands.", inline=False)
-        embed.add_field(name="Help_moderation", value="Gives all the moderation commands.", inline=False)
+        embed.add_field(name="HelpF", value="Gives all the entertainment commands.", inline=False)
+        embed.add_field(name="HelpM", value="Gives all the moderation commands.", inline=False)
         embed.set_footer(text=f"Just helped{ctx.author}", icon_url=ctx.author.avatar_url)
 
         await ctx.send(embed=embed)
