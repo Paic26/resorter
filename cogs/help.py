@@ -44,6 +44,7 @@ class Help(commands.Cog):
         embed.set_author(name="Commands")
         embed.add_field(name="HelpF", value="Gives all the entertainment commands.", inline=False)
         embed.add_field(name="HelpM", value="Gives all the moderation commands.", inline=False)
+        embed.add_field(name="Miscellaneous", value="Other commands. (also can use 'Misc'", inline=False)
         embed.set_footer(text=f"Just helped{ctx.author}", icon_url=ctx.author.avatar_url)
 
         await ctx.send(embed=embed)
@@ -86,8 +87,8 @@ class Help(commands.Cog):
 
         await ctx.send(embed=embed2)
 
-    @commands.command(aliases=['cryptocurrency'])
-    async def crypto(self, ctx):
+    @commands.command(aliases=['Miscellaneous'])
+    async def Misc(self, ctx):
         value = random.randint(0, 0xffffff)
         crypto = discord.Embed(
             colour=value,
@@ -95,11 +96,9 @@ class Help(commands.Cog):
         )
 
         crypto.set_author(name="Crypto Commands")
-        crypto.add_field(name="BTC", value="Bitcoin", inline=False)
-        crypto.add_field(name="ETH", value="Ethereum", inline=False)
-        crypto.add_field(name="BCH", value="Bitcoin Cash", inline=False)
-        crypto.add_field(name="USDT", value="Tether", inline=False)
-        crypto.add_field(name="CSPN", value="Crypto Sports",inline=False)
+        crypto.add_field(name="Stats", value="Bot Stats", inline=False)
+        crypto.add_field(name="MemberCount", value="Number of members in the server", inline=False)
+        crypto.add_field(name="Img", value="Usage: >img <subreddit>", inline=False)
         crypto.set_footer(text=f"Just helped{ctx.author}", icon_url=ctx.author.avatar_url)
 
         await ctx.send(embed=crypto)
