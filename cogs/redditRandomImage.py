@@ -15,7 +15,7 @@ class RedditRandomImage(commands.Cog):
         self.subreddits_list = subreddit_list
 
     @commands.command()
-    async def img(self, ctx, subreddit_name: str):
+    async def random(self, ctx, subreddit_name: str):
         try:
             img_request = self.reddit.subreddit(subreddit_name).random().url
             value = random.randint(0, 0xffffff)
