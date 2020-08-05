@@ -30,7 +30,7 @@ class RedditRandomImage(commands.Cog):
     @commands.command()
     async def meme(self, ctx, message):
         meme = self.reddit.subreddit("memes").random().url
-        await ctx.send(meme)
+        await ctx.message.send(meme)
 
 
 def setup(bot):
