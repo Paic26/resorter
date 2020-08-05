@@ -34,7 +34,8 @@ class Moderation(commands.Cog):
         await member.ban(reason=reason)
         await ctx.send(f'Banned {member.mention}')
         print(f'{member} was Banned from a server')
-
+        await member.send(f'You have been banned for:{reason}')
+        
     @commands.command()
     @commands.has_permissions(ban_members=True)
     async def unban(self, ctx, *, member):
@@ -60,6 +61,7 @@ class Moderation(commands.Cog):
         await member.add_roles(role)
         await ctx.send('Muted')
         print(f'{member} was Muted from a server')
+        await member.send('You have been Muted')
 
     @commands.command()
     @commands.has_permissions(manage_messages=True)
@@ -77,6 +79,7 @@ class Moderation(commands.Cog):
     async def kick(self, ctx, member: discord.Member, *, reason=None):
         await member.kick(reason=reason)
         print(f'{member} was Kicked from a server')
+        await member.send(f'You have been Kicked for:{reason}')
 
     @commands.command(aliases=['purge'])
     @commands.has_permissions(manage_messages=True)
