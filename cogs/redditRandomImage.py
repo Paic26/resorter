@@ -30,7 +30,17 @@ class RedditRandomImage(commands.Cog):
     @commands.command()
     async def meme(self, ctx):
         meme = self.reddit.subreddit("memes").random().url
-        await ctx.send(meme)
+        value = random.randint(0, 0xffffff)
+        embed = discord.Embed(
+            colour=value,
+            timestamp=datetime.datetime.utcnow()
+        )
+
+        embed.set_author(name="M E M E")
+        embed.set_image(url=meme)
+        embed.set_footer(text=f"{ctx.author} Just got memed", icon_url=ctx.author.avatar_url)
+
+        await ctx.send(embed=embed)
 
 
 def setup(bot):
