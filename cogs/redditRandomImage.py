@@ -28,9 +28,9 @@ class RedditRandomImage(commands.Cog):
             await ctx.send("I could not find `{}`".format(subreddit_name))
 
     @commands.command()
-    async def meme(self, ctx, message):
+    async def meme(self, ctx):
         meme = self.reddit.subreddit("memes").random().url
-        await ctx.message.send(meme)
+        await ctx.send(meme)
 
 
 def setup(bot):
