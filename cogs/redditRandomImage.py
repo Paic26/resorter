@@ -33,7 +33,6 @@ class RedditRandomImage(commands.Cog):
         value = random.randint(0, 0xffffff)
         embed = discord.Embed(
             colour=value,
-            timestamp=datetime.datetime.utcnow()
         )
 
         embed.set_author(name="M E M E")
