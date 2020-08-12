@@ -86,8 +86,8 @@ class Entertainment(commands.Cog):
 
         embed.add_field(name="User Name", value=member.name, inline=False)
         embed.add_field(name="ID", value=member.id, inline=False)
-        embed.add_field(name="Account Created", value=member.created_at.strftime("%a, %B %#d %Y, %I:%M %p EST"), inline=False)
-        embed.add_field(name="Member Joined", value=member.joined_at.strftime("%a, %B %#d %Y, %I:%M %p EST"), inline=False)
+        embed.add_field(name="Account Created", value=member.created_at.strftime("%a, %B %#d %Y, %I:%M %p UTC"), inline=False)
+        embed.add_field(name="Member Joined", value=member.joined_at.strftime("%a, %B %#d %Y, %I:%M %p UTC"), inline=False)
         embed.add_field(name=f"Roles ({lenroles})",
                         value=" ".join([r.mention for r in member.roles if r != ctx.guild.default_role]), inline=False)
         embed.add_field(name="Top Role", value=member.top_role.mention, inline=False)
