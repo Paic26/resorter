@@ -5,6 +5,7 @@ from itertools import cycle
 import asyncio
 import traceback
 import os
+import random
 
 def get_prefix(client, message):
     with open('./json/prefixes.json', 'r') as f:
@@ -33,6 +34,7 @@ class Startup(commands.Cog):
         channel = discord.utils.get(member.guild.channels, name='➤💙main-lobby')
         role = discord.utils.get(member.guild.roles, name='Member')
         memberCount = len(set(bot.get_all_members()))
+        value = random.randint(0, 0xffffff)
         embed = discord.Embed(
 
             colour=value,
