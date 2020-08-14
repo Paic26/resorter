@@ -40,7 +40,7 @@ class Startup(commands.Cog):
 
         )
         embed.set_author(name=f"{member}", icon_url=member.avatar_url)
-        embed.add_field(name=f'Welcome {member.mention} to **Chill Resort** ', value="\u200b", inline=False)
+        embed.add_field(name=f'Welcome {member} to **Chill Resort** ', value="\u200b", inline=False)
         embed.set_footer(text=f"Members, {memberCount}")
         await channel.send(embed=embed)
         await member.add_roles(role)
