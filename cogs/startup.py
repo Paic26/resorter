@@ -30,8 +30,6 @@ class Startup(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        channel1 = discord.utils.get(member.guild.channels, name='➤❤rules')
-        channel2 = discord.utils.get(member.guild.channels, name='➤❤information')
         channel = discord.utils.get(member.guild.channels, name='➤💙main-lobby')
         role = discord.utils.get(member.guild.roles, name='Member')
         memberCount = len(set(bot.get_all_members()))
@@ -44,6 +42,7 @@ class Startup(commands.Cog):
         embed.set_author(name=f" {member}", icon_url=bot.user.avatar_url)
         await embed.add_field(name=test)
         embed.set_footer(text=f"Members, {memberCount}")
+        await send.embed(embed=embed)
         await member.add_roles(role)
         
         print(f'{member} has joined a server')
