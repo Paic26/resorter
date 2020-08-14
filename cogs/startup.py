@@ -31,7 +31,7 @@ class Startup(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member:discord.Member):
         channel = discord.utils.get(member.guild.channels, name='➤💙main-lobby')
-        memberCount = len(set(bot.get_all_members()))
+        memberCount = self.guild.member_count
         value = random.randint(0, 0xffffff)
         embed = discord.Embed(
 
