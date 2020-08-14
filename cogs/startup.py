@@ -31,7 +31,6 @@ class Startup(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member:discord.Member):
         channel = discord.utils.get(member.guild.channels, name='➤💙main-lobby')
-        role = discord.utils.get(member.guild.roles, name='✅Verified✅')
         memberCount = len(set(bot.get_all_members()))
         value = random.randint(0, 0xffffff)
         embed = discord.Embed(
@@ -43,12 +42,11 @@ class Startup(commands.Cog):
         embed.add_field(name=f'Welcome {member} to **Chill Resort** ', value="\u200b", inline=False)
         embed.set_footer(text=f"Members, {memberCount}")
         await channel.send(embed=embed)
-        await member.add_roles(role)
         
         print(f'{member} has joined a server')
 
     @commands.Cog.listener()
-    async def on_member_remove(self, ctx, member):
+    async def on_member_remove(self, ctx, member:discord.Member):
         memberCount = len(set(bot.get_all_members()))
         value = random.randint(0, 0xffffff)
         embed = discord.Embed(
