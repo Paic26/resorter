@@ -39,7 +39,7 @@ class Startup(commands.Cog):
             colour=value,
 
         )
-        embed.set_author(name=f"{member}", icon_url=bot.user.avatar_url)
+        embed.set_author(name=f"{member}", icon_url=member.avatar_url)
         await embed.add_field(name=f'Welcome {member.mention} to **Chill Resort** ', value="\u200b", inline=False)
         embed.set_footer(text=f"Members, {memberCount}")
         await channel.send(embed=embed)
@@ -55,7 +55,7 @@ class Startup(commands.Cog):
             colour=value,
 
         )
-        embed.set_author(name=f" {member}", icon_url=bot.user.avatar_url)
+        embed.set_author(name=f" {member}", icon_url=member.avatar_url)
         embed.add_field(name=f'{member} has left the server', value="\u200b", inline=False)
         embed.set_footer(text=f"Members, {memberCount}")
         await ctx.send(embed=embed)
