@@ -33,16 +33,15 @@ class Startup(commands.Cog):
         channel = discord.utils.get(member.guild.channels, name='➤💙main-lobby')
         role = discord.utils.get(member.guild.roles, name='Member')
         memberCount = len(set(bot.get_all_members()))
-        test = "name=f'Welcome {member.mention} to **Chill Resort** ', value="\u200b", inline=False"
         embed = discord.Embed(
 
             colour=value,
 
         )
-        embed.set_author(name=f" {member}", icon_url=bot.user.avatar_url)
-        await embed.add_field(name=test)
+        embed.set_author(name=f"{member}", icon_url=bot.user.avatar_url)
+        await embed.add_field(name=f'Welcome {member.mention} to **Chill Resort** ', value="\u200b", inline=False")
         embed.set_footer(text=f"Members, {memberCount}")
-        await send.embed(embed=embed)
+        await channel.send(embed=embed)
         await member.add_roles(role)
         
         print(f'{member} has joined a server')
