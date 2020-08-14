@@ -48,7 +48,7 @@ class Startup(commands.Cog):
         print(f'{member} has joined a server')
 
     @commands.Cog.listener()
-    async def on_member_remove(self, member):
+    async def on_member_remove(self, ctx, member):
         memberCount = len(set(bot.get_all_members()))
         value = random.randint(0, 0xffffff)
         embed = discord.Embed(
