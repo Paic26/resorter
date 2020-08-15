@@ -38,6 +38,12 @@ class Moderation(commands.Cog):
 
         print(f'{member} was Banned from a server')
         await member.send(f'You have been banned for:{reason}')
+        embed2 = discord.Embed(
+            colour=value,
+        )
+        embed2.set_author(name=f" {member}", icon_url=member.avatar_url)
+        embed2.add_field(name=f'{member} was Banned for: {reason}', value=":cold_face::cold_face::cold_face::cold_face::cold_face::cold_face:", inline=False)
+        await channel.send(embed=embed2) 
         
     @commands.command()
     @commands.has_permissions(ban_members=True)
@@ -54,7 +60,13 @@ class Moderation(commands.Cog):
                 await ctx.send(f'Unbanned {user.mention}')
                 print(f'{member} was Unbanned from a server')
                 return
-
+        embed2 = discord.Embed(
+            colour=value,
+        )
+        embed2.set_author(name=f" {member}", icon_url=member.avatar_url)
+        embed2.add_field(name=f'{member} was Unbaned', value=":cold_face::cold_face::cold_face::cold_face::cold_face::cold_face:", inline=False)
+        await channel.send(embed=embed2)       
+        
     @commands.command()
     @commands.has_permissions(manage_messages=True)
     async def mute(self, ctx, member: discord.Member = None):
@@ -65,6 +77,12 @@ class Moderation(commands.Cog):
             return
         await member.add_roles(role)
         await ctx.send('Muted')
+        embed2 = discord.Embed(
+            colour=value,
+        )
+        embed2.set_author(name=f" {member}", icon_url=member.avatar_url)
+        embed2.add_field(name=f'{member} was Muted', value=":cold_face::cold_face::cold_face::cold_face::cold_face::cold_face:", inline=False)
+        await channel.send(embed=embed2) 
         print(f'{member} was Muted from a server')
         await member.send('You have been Muted')
 
@@ -78,6 +96,14 @@ class Moderation(commands.Cog):
             return
         await member.remove_roles(role)
         await ctx.send('Unmuted')
+        
+        embed2 = discord.Embed(
+            colour=value,
+        )
+        embed2.set_author(name=f" {member}", icon_url=member.avatar_url)
+        embed2.add_field(name=f'{member} was umuted', value=":cold_face::cold_face::cold_face::cold_face::cold_face::cold_face:", inline=False)
+        await channel.send(embed=embed2)
+        
         print(f'{member} was Unmuted from a server')
 
     @commands.command()
@@ -86,6 +112,14 @@ class Moderation(commands.Cog):
         channel = discord.utils.get(member.guild.channels, name='➤🍐resorter-logs')
         await member.kick(reason=reason)
         print(f'{member} was Kicked from a server')
+        
+        embed2 = discord.Embed(
+            colour=value,
+        )
+        embed2.set_author(name=f" {member}", icon_url=member.avatar_url)
+        embed2.add_field(name=f'{member} was Kicked for: {reason}', value=":cold_face::cold_face::cold_face::cold_face::cold_face::cold_face:", inline=False)
+
+        await channel.send(embed=embed2)
         await member.send(f'You have been Kicked for:{reason}')
 
     @commands.command(aliases=['purge'])
@@ -113,7 +147,7 @@ class Moderation(commands.Cog):
             colour=value,
         )
         embed2.set_author(name=f" {member}", icon_url=member.avatar_url)
-        embed2.add_field(name=f'{member} was warned for: {reason}', value=":heart::blue_heart::green_heart::yellow_heart::purple_heart::orange_heart:", inline=False)
+        embed2.add_field(name=f'{member} was warned for: {reason}', value=":cold_face::cold_face::cold_face::cold_face::cold_face::cold_face:", inline=False)
 
         await channel.send(embed=embed2)
         await member.send(f'You have been warned for:{reason}')
