@@ -35,16 +35,16 @@ class Moderation(commands.Cog):
         channel = discord.utils.get(member.guild.channels, name='➤🍐resorter-logs')
         await member.ban(reason=reason)
         await ctx.send(f'Banned {member.mention}')
-
-
-        print(f'{member} was Banned from a server')
-        await member.send(f'You have been banned for:{reason}')
         embed2 = discord.Embed(
             colour=value,
         )
         embed2.set_author(name=f" {member}", icon_url=member.avatar_url)
         embed2.add_field(name=f'{member} was Banned for: {reason}', value=":cold_face::cold_face::cold_face::cold_face::cold_face::cold_face:", inline=False)
         await channel.send(embed=embed2) 
+
+        print(f'{member} was Banned from a server')
+        await member.send(f'You have been banned for:{reason}')
+
         
     @commands.command()
     @commands.has_permissions(ban_members=True)
