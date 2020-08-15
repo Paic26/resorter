@@ -128,7 +128,7 @@ class Moderation(commands.Cog):
     @commands.command(aliases=['purge'])
     @commands.has_permissions(manage_messages=True)
     async def clear(self, ctx, amount=6):
-        await ctx.channel.purge(limit=amount)
+        await ctx.channel.purge(limit=amount+1)
 
     @commands.command(aliases=['purgeall', 'purge_all'])
     @commands.has_permissions(manage_messages=True)
