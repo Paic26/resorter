@@ -53,6 +53,14 @@ class Moderation(commands.Cog):
         banned_users = await ctx.guild.bans()
         member_name, member_discriminator = member.split('#')
 
+        channel = discord.utils.get(member.guild.channels, name='➤🍐resorter-logs')
+        embed2 = discord.Embed(
+            colour=value,
+        )
+        embed2.set_author(name=f" {member}", icon_url=member.avatar_url)
+        embed2.add_field(name=f'{member} was Unbaned', value=":cold_face::cold_face::cold_face::cold_face::cold_face::cold_face:", inline=False)
+        await channel.send(embed=embed2)
+        
         for ban_entry in banned_users:
             user = ban_entry.user
 
@@ -60,14 +68,7 @@ class Moderation(commands.Cog):
                 await ctx.guild.unban(user)
                 await ctx.send(f'Unbanned {user.mention}')
                 print(f'{member} was Unbanned from a server')
-
-        channel = discord.utils.get(member.guild.channels, name='➤🍐resorter-logs')
-        embed2 = discord.Embed(
-            colour=value,
-        )
-        embed2.set_author(name=f" {member}", icon_url=member.avatar_url)
-        embed2.add_field(name=f'{member} was Unbaned', value=":cold_face::cold_face::cold_face::cold_face::cold_face::cold_face:", inline=False)
-        await channel.send(embed=embed2)       
+                return
         
     @commands.command()
     @commands.has_permissions(manage_messages=True)
