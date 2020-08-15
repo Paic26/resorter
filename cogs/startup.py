@@ -46,7 +46,7 @@ class Startup(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_remove(self, member:discord.Member):
-        channel = discord.utils.get(member.guild.channels, name='➤💔invite-logs')
+        channel = discord.utils.get(member.guild.channels, name='➤🍐invite-logs')
         value = random.randint(0, 0xffffff)
         embed = discord.Embed(
             colour=value,
