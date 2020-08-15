@@ -42,7 +42,7 @@ class Startup(commands.Cog):
 
         )
         embed.set_author(name=f"{member}", icon_url=member.avatar_url)
-        embed.add_field(name=f'{welcomes}', value="\u200b", inline=False)
+        embed.add_field(name=f'{random.choice(welcomes)}', value="\u200b", inline=False)
         
         await channel.send(embed=embed)
         
