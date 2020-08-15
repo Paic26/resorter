@@ -101,14 +101,18 @@ async def stats(ctx):
     embed.set_author(name=bot.user.name, icon_url=bot.user.avatar_url)
 
     await ctx.send(embed=embed)    
+    
+    
+    
+    
 @bot.command()
 async def membercount(ctx):    
     memberCount = len(set(bot.get_all_members()))
-    embed = discord.Embed(title='Member Count',
-                          description='\uFEFF',
-                          colour=ctx.author.colour,
+    embed = discord.Embed(colour=ctx.author.colour,
                           timestamp=ctx.message.created_at)
     embed.add_field(name='Total Users:', value=f"{memberCount}", inline=False)
 
     await ctx.send(embed=embed)  
+    
+    
 bot.run(os.environ['TOKEN'])
