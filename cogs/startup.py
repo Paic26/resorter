@@ -29,9 +29,9 @@ class Startup(commands.Cog):
         print('Startup Cog is on')
 
     @commands.Cog.listener()
-    async def on_member_join(self, member:discord.Member, ctx):
+    async def on_member_join(self, member:discord.Member):
         channel = discord.utils.get(member.guild.channels, name='➤💙main-lobby')
-        guild = ctx.guild
+        guild = self.guild
         memberCount = self.guild.member_count
         value = random.randint(0, 0xffffff)
         embed = discord.Embed(
