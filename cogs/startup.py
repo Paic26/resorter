@@ -42,7 +42,7 @@ class Startup(commands.Cog):
 
         )
         embed.set_author(name=f"{member}", icon_url=member.avatar_url)
-        embed.add_field(name=f'{random.choice(welcomes)}', value="\u200b", inline=False)
+        embed.add_field(name=f'{random.choice(welcomes)}', value=":heart::blue_heart::green_heart::yellow_heart::purple_heart::orange_heart:", inline=False)
         
         await channel.send(embed=embed)
         
@@ -56,7 +56,7 @@ class Startup(commands.Cog):
             colour=value,
         )
         embed.set_author(name=f" {member}", icon_url=member.avatar_url)
-        embed.add_field(name=f'{member} has left the server', value="\u200b", inline=False)
+        embed.add_field(name=f'{member} has left the server', value=":heart::blue_heart::green_heart::yellow_heart::purple_heart::orange_heart:", inline=False)
 
         await channel.send(embed=embed)
         print(f'{member} has left a server')
