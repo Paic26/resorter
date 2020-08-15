@@ -60,7 +60,8 @@ class Moderation(commands.Cog):
                 await ctx.guild.unban(user)
                 await ctx.send(f'Unbanned {user.mention}')
                 print(f'{member} was Unbanned from a server')
-                return
+
+        channel = discord.utils.get(member.guild.channels, name='➤🍐resorter-logs')
         embed2 = discord.Embed(
             colour=value,
         )
