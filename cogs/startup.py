@@ -32,13 +32,17 @@ class Startup(commands.Cog):
     async def on_member_join(self, member:discord.Member):
         channel = discord.utils.get(member.guild.channels, name='➤🍓main-lobby')
         value = random.randint(0, 0xffffff)
+        welcomes = [f'{member} just entered Chill Resort!!',
+                   f'Welcome to Chill Resort:island:, {member}',
+                   f'A wild {member} just joined the Chill Resort!!',
+                   f'Everyone welcome {member}']
         embed = discord.Embed(
 
             colour=value,
 
         )
         embed.set_author(name=f"{member}", icon_url=member.avatar_url)
-        embed.add_field(name=f'Welcome {member} to **Chill Resort:island:** ', value="\u200b", inline=False)
+        embed.add_field(name=f'{welcomes}', value="\u200b", inline=False)
         
         await channel.send(embed=embed)
         
