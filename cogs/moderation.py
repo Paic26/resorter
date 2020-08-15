@@ -48,7 +48,7 @@ class Moderation(commands.Cog):
         
     @commands.command()
     @commands.has_permissions(ban_members=True)
-    async def unban(self, ctx, *, member):
+    async def unban(self, ctx, *, member: discord.Member):
         channel = discord.utils.get(member.guild.channels, name='➤🍐resorter-logs')
         banned_users = await ctx.guild.bans()
         member_name, member_discriminator = member.split('#')
