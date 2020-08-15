@@ -31,8 +31,6 @@ class Startup(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member:discord.Member):
         channel = discord.utils.get(member.guild.channels, name='➤💙main-lobby')
-        guild = self.guild
-        memberCount = self.guild.member_count
         value = random.randint(0, 0xffffff)
         embed = discord.Embed(
 
@@ -41,7 +39,7 @@ class Startup(commands.Cog):
         )
         embed.set_author(name=f"{member}", icon_url=member.avatar_url)
         embed.add_field(name=f'Welcome {member} to **Chill Resort:island:** ', value="\u200b", inline=False)
-        embed.set_footer(text=f"Members, {memberCount}")
+        
         await channel.send(embed=embed)
         
         print(f'{member} has joined a server')
@@ -49,16 +47,13 @@ class Startup(commands.Cog):
     @commands.Cog.listener()
     async def on_member_remove(self, member:discord.Member):
         channel = discord.utils.get(member.guild.channels, name='➤💔invite-logs')
-        memberCount = len(set(bot.get_all_members()))
         value = random.randint(0, 0xffffff)
         embed = discord.Embed(
-
             colour=value,
-
         )
         embed.set_author(name=f" {member}", icon_url=member.avatar_url)
         embed.add_field(name=f'{member} has left the server', value="\u200b", inline=False)
-        embed.set_footer(text=f"Members, {memberCount}")
+
         await channel.send(embed=embed)
         print(f'{member} has left a server')
 
