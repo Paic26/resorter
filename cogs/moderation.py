@@ -31,14 +31,18 @@ class Moderation(commands.Cog):
     @commands.command()
     @commands.has_permissions(ban_members=True)
     async def ban(self, ctx, member: discord.Member, *, reason=None):
+        channel = discord.utils.get(member.guild.channels, name='➤🍐resorter-logs')
         await member.ban(reason=reason)
         await ctx.send(f'Banned {member.mention}')
+
+
         print(f'{member} was Banned from a server')
         await member.send(f'You have been banned for:{reason}')
         
     @commands.command()
     @commands.has_permissions(ban_members=True)
     async def unban(self, ctx, *, member):
+        channel = discord.utils.get(member.guild.channels, name='➤🍐resorter-logs')
         banned_users = await ctx.guild.bans()
         member_name, member_discriminator = member.split('#')
 
@@ -54,6 +58,7 @@ class Moderation(commands.Cog):
     @commands.command()
     @commands.has_permissions(manage_messages=True)
     async def mute(self, ctx, member: discord.Member = None):
+        channel = discord.utils.get(member.guild.channels, name='➤🍐resorter-logs')
         role = discord.utils.get(ctx.guild.roles, name='Muted')
         if not member:
             await ctx.send('Please specify a member')
@@ -66,6 +71,7 @@ class Moderation(commands.Cog):
     @commands.command()
     @commands.has_permissions(manage_messages=True)
     async def unmute(self, ctx, member: discord.Member = None):
+        channel = discord.utils.get(member.guild.channels, name='➤🍐resorter-logs')
         role = discord.utils.get(ctx.guild.roles, name='Muted')
         if not member:
             await ctx.send('Please specify a member')
@@ -77,6 +83,7 @@ class Moderation(commands.Cog):
     @commands.command()
     @commands.has_permissions(kick_members=True)
     async def kick(self, ctx, member: discord.Member, *, reason=None):
+        channel = discord.utils.get(member.guild.channels, name='➤🍐resorter-logs')
         await member.kick(reason=reason)
         print(f'{member} was Kicked from a server')
         await member.send(f'You have been Kicked for:{reason}')
@@ -94,12 +101,21 @@ class Moderation(commands.Cog):
     @commands.command()
     @commands.has_permissions(view_audit_log=True)
     async def warn(self, ctx, member: discord.Member, *, reason):
+        channel = discord.utils.get(member.guild.channels, name='➤🍐resorter-logs')
         value = random.randint(0, 0xffffff)
         await ctx.message.delete()
         embed = discord.Embed(colour=value, timestamp=datetime.datetime.utcnow())
         embed.add_field(name=f'{member} was warned for: {reason}', value="\u200b", inline=False)
 
         await ctx.send(embed=embed)
+        
+        embed2 = discord.Embed(
+            colour=value,
+        )
+        embed2.set_author(name=f" {member}", icon_url=member.avatar_url)
+        embed2.add_field(name=f'{member} was warned for: {reason}', value=":heart::blue_heart::green_heart::yellow_heart::purple_heart::orange_heart:", inline=False)
+
+        await channel.send(embed=embed2)
         await member.send(f'You have been warned for:{reason}')
         #errors
 
