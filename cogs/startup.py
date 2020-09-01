@@ -30,7 +30,7 @@ class Startup(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member:discord.Member):
-        channel = discord.utils.get(member.guild.channels, name='➤☕𝒍𝒐𝒖𝒏𝒈𝒆')
+        channel = discord.utils.get(member.guild.channels, name='☛☕𝒍𝒐𝒖𝒏𝒈𝒆☚')
         value = random.randint(0, 0xffffff)
         welcomes = [f'{member} just entered Chill Resort!!',
                    f'Welcome to Chill Resort:island:, {member}',
@@ -50,7 +50,7 @@ class Startup(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_remove(self, member:discord.Member):
-        channel = discord.utils.get(member.guild.channels, name='➤📚invite-logs')
+        channel = discord.utils.get(member.guild.channels, name='☛💜resorter-logs☚')
         value = random.randint(0, 0xffffff)
         embed = discord.Embed(
             colour=value,
