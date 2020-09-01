@@ -160,7 +160,7 @@ class Moderation(commands.Cog):
     @commands.command()
     @commands.has_permissions(view_audit_log=True)
     async def role(self, ctx, member: discord.Member, role: discord.Role = None):
-        await user.add_roles(member, role)
+        await user.add_roles(role, member)
         await ctx.send(f"{member} received {role}.")
         
     @commands.command()
