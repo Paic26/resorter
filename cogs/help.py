@@ -63,6 +63,7 @@ class Help(commands.Cog):
         embed1.add_field(name="WhoIs", value="Will give a certain user's info.", inline=False)
         embed1.add_field(name="Avatar", value="Shows the selected user's profile picture.", inline=False)
         embed1.add_field(name="Dm", value="Dm someone with the bot", inline=False)
+        embed1.add_field(name="Meme", value="Get a Meme from Reddit", inline=False)
         embed1.set_footer(text=f"Just helped{ctx.author}", icon_url=ctx.author.avatar_url)
 
         await ctx.send(embed=embed1)
@@ -90,16 +91,15 @@ class Help(commands.Cog):
     @commands.command(aliases=['Miscellaneous'])
     async def Misc(self, ctx):
         value = random.randint(0, 0xffffff)
-        crypto = discord.Embed(
+        misc = discord.Embed(
             colour=value,
             timestamp=datetime.datetime.utcnow()
         )
 
-        crypto.set_author(name="Crypto Commands")
-        crypto.add_field(name="Stats", value="Bot Stats", inline=False)
-        crypto.add_field(name="MemberCount", value="Number of members in the server", inline=False)
-        crypto.add_field(name="Img", value="Usage: >img <subreddit>", inline=False)
-        crypto.set_footer(text=f"Just helped{ctx.author}", icon_url=ctx.author.avatar_url)
+        misc.set_author(name="Miscellaneous Commands")
+        misc.add_field(name="Stats", value="Bot Stats", inline=False)
+        misc.add_field(name="MemberCount", value="Number of members in the server", inline=False)
+        misc.set_footer(text=f"Just helped{ctx.author}", icon_url=ctx.author.avatar_url)
 
         await ctx.send(embed=crypto)
         
