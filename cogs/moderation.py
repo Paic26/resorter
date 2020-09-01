@@ -154,6 +154,21 @@ class Moderation(commands.Cog):
 
         await channel.send(embed=embed2)
         await member.send(f'You have been warned for:{reason}')
+        
+        
+        
+    @commands.command()
+    @commands.has_permissions(view_audit_log=True)
+    async def role(self, ctx, role: discord.Role, user: discord.Member):
+        await user.add_roles(role)
+        await ctx.send(f"{user} received {role}.")
+        
+    @commands.command()
+    @commands.has_permissions(view_audit_log=True)
+    async def unrole(self, ctx, role: discord.Role, user: discord.Member):
+        await user.remove_roles(role)
+        await ctx.send(f"{user} got {role} removed.")
+        
         #errors
 
     @kick.error
