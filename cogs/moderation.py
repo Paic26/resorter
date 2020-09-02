@@ -84,7 +84,7 @@ class Moderation(commands.Cog):
         embed2.add_field(name=f'{member} was Muted', value=":cold_face::cold_face::cold_face::cold_face::cold_face::cold_face:", inline=False)
         await channel.send(embed=embed2) 
         print(f'{member} was Muted from a server')
-        await member.send('You have been muted in Chill Resort:island: by {ctx.author} for: {reason}')
+        await member.send(f'You have been muted in Chill Resort:island: by {ctx.author} for: {reason}')
 
     @commands.command()
     @commands.has_permissions(manage_messages=True)
