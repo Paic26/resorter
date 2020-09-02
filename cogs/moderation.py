@@ -42,7 +42,7 @@ class Moderation(commands.Cog):
         await channel.send(embed=embed2) 
 
         print(f'{member} was Banned from a server')
-        await member.send(f'You have been banned for:{reason}')
+        await member.send(f'You have been banned in Chill Resort:island: by {ctx.author} for: {reason}')
 
         
     @commands.command()
@@ -84,7 +84,7 @@ class Moderation(commands.Cog):
         embed2.add_field(name=f'{member} was Muted', value=":cold_face::cold_face::cold_face::cold_face::cold_face::cold_face:", inline=False)
         await channel.send(embed=embed2) 
         print(f'{member} was Muted from a server')
-        await member.send('You have been Muted')
+        await member.send('You have been muted in Chill Resort:island: by {ctx.author} for: {reason}')
 
     @commands.command()
     @commands.has_permissions(manage_messages=True)
@@ -119,7 +119,7 @@ class Moderation(commands.Cog):
         embed2.add_field(name=f'{member} was Kicked for: {reason}', value=":cold_face::cold_face::cold_face::cold_face::cold_face::cold_face:", inline=False)
 
         await channel.send(embed=embed2)
-        await member.send(f'You have been Kicked for:{reason}')
+        await member.send(f'You have been kicked from Chill Resort:island: by {ctx.author} for: {reason}')
 
     @commands.command(aliases=['purge'])
     @commands.has_permissions(manage_messages=True)
