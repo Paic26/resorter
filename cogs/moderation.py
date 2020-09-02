@@ -15,7 +15,6 @@ Bot = discord.client
 client = bot
 client.remove_command('help')
 value = random.randint(0, 0xffffff)
-channel = discord.utils.get(member.guild.channels, name='☛📔bot-logs☚')
 class Moderation(commands.Cog):
 
     def __init__(self, bot, *args, **kwargs):
