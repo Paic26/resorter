@@ -13,6 +13,7 @@ def get_prefix(client, message):
 bot = commands.Bot(command_prefix = get_prefix,  case_insensitive=True, owner_id=382947478422421516)
 Bot = discord.client
 client = bot
+member = discord.Member
 client.remove_command('help')
 value = random.randint(0, 0xffffff)
 channel = discord.utils.get(member.guild.channels, name='☛📔bot-logs☚')
