@@ -148,7 +148,7 @@ class Moderation(commands.Cog):
         embed2.add_field(name=f'{member} was warned for: {reason}', value=":cold_face::cold_face::cold_face::cold_face::cold_face::cold_face:", inline=False)
 
         await channel.send(embed=embed2)
-        await member.send(f'You have been warned for:{reason}')
+        await member.send(f'You have been warned in Chill Resort:island: by {ctx.author} for: {reason}')
         
         
         
