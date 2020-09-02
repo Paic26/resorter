@@ -14,7 +14,7 @@ bot = commands.Bot(command_prefix = get_prefix,  case_insensitive=True, owner_id
 Bot = discord.client
 client = bot
 client.remove_command('help')
-value = random.randint(0, 0xffffff)
+value = random.randint(0, 0x0080FF)
 class Moderation(commands.Cog):
 
     def __init__(self, bot, *args, **kwargs):
