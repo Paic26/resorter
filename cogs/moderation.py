@@ -13,7 +13,6 @@ def get_prefix(client, message):
 bot = commands.Bot(command_prefix = get_prefix,  case_insensitive=True, owner_id=382947478422421516)
 Bot = discord.client
 client = bot
-member = discord.Member
 client.remove_command('help')
 value = random.randint(0, 0xffffff)
 channel = discord.utils.get(member.guild.channels, name='☛📔bot-logs☚')
@@ -35,6 +34,7 @@ class Moderation(commands.Cog):
     async def ban(self, ctx, member: discord.Member, *, reason=None):
         await member.ban(reason=reason)
         await ctx.send(f'Banned {member.mention}')
+        channel = discord.utils.get(member.guild.channels, name='☛📔bot-logs☚')
         embed2 = discord.Embed(
             colour=value,
         )
@@ -49,6 +49,7 @@ class Moderation(commands.Cog):
     @commands.command()
     @commands.has_permissions(ban_members=True)
     async def unban(self, ctx, *, member: discord.Member):
+        channel = discord.utils.get(member.guild.channels, name='☛📔bot-logs☚')
         banned_users = await ctx.guild.bans()
         member_name, member_discriminator = member.split('#')
         embed2 = discord.Embed(
@@ -70,6 +71,7 @@ class Moderation(commands.Cog):
     @commands.command()
     @commands.has_permissions(manage_messages=True)
     async def mute(self, ctx, member: discord.Member = None):
+        channel = discord.utils.get(member.guild.channels, name='☛📔bot-logs☚')
         role = discord.utils.get(ctx.guild.roles, name='Muted')
         if not member:
             await ctx.send('Please specify a member')
@@ -89,6 +91,7 @@ class Moderation(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     async def unmute(self, ctx, member: discord.Member = None):
         role = discord.utils.get(ctx.guild.roles, name='Muted')
+        channel = discord.utils.get(member.guild.channels, name='☛📔bot-logs☚')
         if not member:
             await ctx.send('Please specify a member')
             return
@@ -109,7 +112,7 @@ class Moderation(commands.Cog):
     async def kick(self, ctx, member: discord.Member, *, reason=None):
         await member.kick(reason=reason)
         print(f'{member} was Kicked from a server')
-        
+        channel = discord.utils.get(member.guild.channels, name='☛📔bot-logs☚')
         embed2 = discord.Embed(
             colour=value,
         )
@@ -132,6 +135,7 @@ class Moderation(commands.Cog):
     @commands.command()
     @commands.has_permissions(view_audit_log=True)
     async def warn(self, ctx, member: discord.Member, *, reason):
+        channel = discord.utils.get(member.guild.channels, name='☛📔bot-logs☚')
         value = random.randint(0, 0xffffff)
         await ctx.message.delete()
         embed = discord.Embed(colour=value, timestamp=datetime.datetime.utcnow())
